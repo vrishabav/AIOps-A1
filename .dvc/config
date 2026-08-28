@@ -1,0 +1,5 @@
+[core]
+    remote = aiopsa1q3
+['remote "aiopsa1q3"']
+    url = ssh://vrishab-av@localhost/home/vrishab-av/dvcstore
+    keyfile = /home/vrishab-av/.ssh/id_rsa
