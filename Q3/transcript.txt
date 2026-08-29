@@ -1,0 +1,42 @@
+(aiops) vrishab-av@vrishab-av:/tmp$ cd "/media/WindowsC/Users/vrish/Documents/IIT/AIDA/Sem 5/DA3408 - AI Ops Lab/Assignment 1/da3408-a1-da24b033-repo"
+git ls-remote --tags origin
+65fecca0326b49d60af20da0ee75aff7d2581d86	refs/tags/v1
+750cf1fcd3bc76bbff1941a4ccaec5543397ae08	refs/tags/v1^{}
+ccfa1c7591a0b2a87ccccda7a4c9c6d98937ec22	refs/tags/v2
+b7031ede6997e9a02ff3af2625c8beeab2a6501a	refs/tags/v2^{}
+(aiops) vrishab-av@vrishab-av:/media/WindowsC/Users/vrish/Documents/IIT/AIDA/Sem 5/DA3408 - AI Ops Lab/Assignment 1/da3408-a1-da24b033-repo$ cd /tmp && rm -rf verify2
+git clone https://github.com/vrishabav/AIOps-A1.git verify2
+cd verify2
+dvc checkout
+wc -l files.csv                        # expect 2801  (v2)
+git checkout v1 -- files.csv.dvc       # move only the pointer; cache stays present
+dvc checkout
+wc -l files.csv                        # expect 1801  (v1)
+git checkout main -- files.csv.dvc && dvc checkout
+wc -l files.csv                        # back to 2801
+Cloning into 'verify2'...
+remote: Enumerating objects: 62, done.
+remote: Counting objects: 100% (62/62), done.
+remote: Compressing objects: 100% (43/43), done.
+remote: Total 62 (delta 8), reused 61 (delta 8), pack-reused 0 (from 0)
+Receiving objects: 100% (62/62), 3.04 MiB | 4.53 MiB/s, done.
+Resolving deltas: 100% (8/8), done.
+Building workspace index                               |2.00 [00:00,  105entry/s]
+Comparing indexes                                     |5.00 [00:00, 1.99kentry/s]
+Applying changes                                       |2.00 [00:00,   621file/s]
+A       Q4/data/mnist_subset.npz
+A       files.csv
+2801 files.csv
+Building workspace index                               |4.00 [00:00,  345entry/s]
+Comparing indexes                                     |5.00 [00:00, 2.85kentry/s]
+Applying changes                                       |1.00 [00:00, 1.00kfile/s]
+M       files.csv
+1801 files.csv
+Building workspace index                               |4.00 [00:00,  696entry/s]
+Comparing indexes                                     |5.00 [00:00, 4.07kentry/s]
+Applying changes                                       |1.00 [00:00,   577file/s]
+M       files.csv
+2801 files.csv
+(aiops) vrishab-av@vrishab-av:/tmp/verify2$ 
+
+

@@ -1,0 +1,21 @@
+commit 91f6346042127b0648eb770f2c3c79c464097160
+Author: Vrishab Anurag Venkataraghavan <vrishabav06@gmail.com>
+Date:   Sat Aug 29 13:57:22 2026 +0530
+
+    Added Q2 Notebook, Q4 files, env, docs
+
+ .../files/md5/6a/f7fd276ce39ea8bdc91b7e668bbbd7    | Bin 1536091 -> 0 bytes
+ .../files/md5/b5/0dac761e0135c47104e195c592c9db    | Bin 0 -> 1648225 bytes
+ .gitignore                                         |  20 +-
+ Q2/Q2_MNIST.ipynb                                  | 386 +++++++++++++++++++++
+ Q4/PARTNER_INSTRUCTIONS.md                         | 123 +++++++
+ Q4/RUN_RECORD.md                                   |  57 +++
+ Q4/data/.gitignore                                 |   1 +
+ Q4/data/mnist_subset.npz.dvc                       |   6 +
+ Q4/log_partner_note.py                             |  53 +++
+ Q4/make_dataset.py                                 |  40 +++
+ Q4/train.py                                        | 151 ++++++++
+ README.md                                          |   1 +
+ environment.yml                                    |  23 ++
+ requirements.txt                                   |   8 +
+ 14 files changed, 867 insertions(+), 2 deletions(-)
