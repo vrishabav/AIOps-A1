@@ -1,0 +1,23 @@
+# Conda/mamba environment for the AIOps Module 1 assignment.
+#
+# Only Python and pip come from conda; every scientific package is pinned via
+# pip so the exact versions used to produce the recorded Q4 run are available
+# on any platform (several of these are not packaged on conda-forge at these
+# versions).
+#
+#   mamba env create -f environment.yml
+#   mamba activate aiops-m1
+#
+# A plain virtualenv works equally well — see requirements.txt.
+name: aiops-m1
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - mlflow==3.15.1
+      - scikit-learn==1.9.0
+      - numpy==2.5.2
+      - pandas==2.3.3
+      - dvc==3.64.0

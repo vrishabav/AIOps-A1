@@ -1,0 +1,6 @@
+outs:
+- md5: b50dac761e0135c47104e195c592c9db
+  size: 1648225
+  isexec: true
+  hash: md5
+  path: mnist_subset.npz
