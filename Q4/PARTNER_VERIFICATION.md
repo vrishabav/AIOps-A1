@@ -40,10 +40,8 @@ the environment or the dataset was requested from Partner A.
 | accuracy | 0.9485 | 0.9520 | +0.0035 |
 | f1_macro | 0.9481 | 0.9519 | +0.0038 |
 
-Stated tolerance (from `RUN_RECORD.md`): **+/-0.005 absolute accuracy.**
 
-**Verdict: MATCH** — the reproduced accuracy falls inside the declared
-tolerance.
+**Both runs differed by 0.0035 in accuracy, which is within the acceptable stated tolerance of 0.005 for reproducible runs on an MLP.**
 
 Supporting values from the reproduction run:
 
@@ -56,12 +54,13 @@ Supporting values from the reproduction run:
 
 ## Environment used for reproduction
 
-    python           3.14  <FILL exact patch version: python -V>
-    scikit-learn     <FILL: python -c "import sklearn; print(sklearn.__version__)">
-    mlflow           3.15.1
-    numpy            <FILL: python -c "import numpy; print(numpy.__version__)">
-    OS               <FILL: e.g. Ubuntu 24.04>
-
+| Package / System | Version |
+|---|---|
+| Python | 3.14.4 |
+| scikit-learn | 1.9.0 |
+| MLflow | 3.15.1 |
+| NumPy | 2.5.2 |
+| OS | Ubuntu 26.04 LTS |
 
 ## MLflow evidence
 
