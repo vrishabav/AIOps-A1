@@ -37,8 +37,6 @@ in Git. Local MLflow state (`mlflow.db`, `mlruns/`) is machine-specific and not 
 
 ## Setup
 
-Clone to a **native Linux path** — DVC's cache uses hardlinks, which NTFS does not support.
-
 ```bash
 mamba env create -f environment.yml && mamba activate aiops-m1
 # or:  python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt
@@ -49,14 +47,14 @@ reproduction were executed on 3.14.4 with the pinned package versions.
 
 ## Running each question
 
-**Q2** — start a tracking server, then run the notebook top to bottom (experiment
+**Q2** - start a tracking server, then run the notebook top to bottom (experiment
 `mnist-classifier`):
 
 ```bash
 mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 0.0.0.0 --port 5000
 ```
 
-**Q3** — the DVC cache objects for both dataset versions are committed, so this works from a
+**Q3** —-the DVC cache objects for both dataset versions are committed, so this works from a
 bare clone with no credentials:
 
 ```bash
@@ -65,11 +63,6 @@ git checkout v1 -- files.csv.dvc; dvc checkout
                                   wc -l files.csv    # 1801  (v1)
 git checkout main -- files.csv.dvc && dvc checkout   # back to 2801
 ```
-
-> Use the pointer-only form above rather than a full `git checkout v1`: the full checkout
-> rewinds past the commit that added the cache objects, removing them from disk, and
-> `dvc pull` cannot recover them because the SSH remote is a private host. Either way the
-> mechanism is the same — `git checkout` moves the pointer, `dvc checkout` moves the bytes.
 
 **Q4** — reproduce Partner A's run:
 
